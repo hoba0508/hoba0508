@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Wizard view -->
+    <record id="view_ads_sync_wizard_form" model="ir.ui.view">
+        <field name="name">ads.sync.wizard.form</field>
+        <field name="model">ads.sync.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Ads Sync">
+                <sheet>
+                    <group>
+                        <field name="platform"/>
+                    </group>
+                    <group>
+                        <field name="ad_account_id"/>
+                        <field name="access_token" password="True"/>
+                    </group>
+                    <footer>
+                        <button string="Sync" type="object" name="action_sync" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Wizard action -->
+    <record id="action_ads_sync_wizard" model="ir.actions.act_window">
+        <field name="name">Ads Sync</field>
+        <field name="res_model">ads.sync.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Add menu item under Ads root -->
+    <menuitem id="menu_ads_sync_wizard"
+              name="Sync Campaigns"
+              parent="menu_ads_root"
+              action="action_ads_sync_wizard"
+              sequence="20"/>
+</odoo>

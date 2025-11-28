@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Root Menu under Social Marketing -->
+    <menuitem
+        id="menu_ads_root"
+        name="Ads"
+        parent="social.menu_social_global"
+        sequence="80"
+    />
+
+    <!-- Campaigns submenu -->
+    <menuitem
+        id="menu_ads_campaigns"
+        name="Campaigns"
+        parent="menu_ads_root"
+        action="action_ads_campaign"
+        sequence="10"
+    />
+
+    <!-- Ads Campaign Action -->
+    <record id="action_ads_campaign" model="ir.actions.act_window">
+        <field name="name">Ads Campaigns</field>
+        <field name="res_model">ads.campaign</field>
+        <field name="view_mode">list,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Use the Ads Sync wizard (Settings → Marketing → Ads Sync) to import ads.
+            </p>
+        </field>
+    </record>
+
+    <!-- List view -->
+    <record id="view_ads_campaign_list" model="ir.ui.view">
+        <field name="name">ads.campaign.list</field>
+        <field name="model">ads.campaign</field>
+        <field name="arch" type="xml">
+            <list string="Ads Campaigns">
+                <field name="campaign_code"/>
+                <field name="platform"/>
+                <field name="name"/>
+                <field name="ad_id"/>
+                <field name="status"/>
+                <field name="impressions"/>
+                <field name="clicks"/>
+                <field name="spend"/>
+                <field name="date_start"/>
+                <field name="date_stop"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form view -->
+    <record id="view_ads_campaign_form" model="ir.ui.view">
+        <field name="name">ads.campaign.form</field>
+        <field name="model">ads.campaign</field>
+        <field name="arch" type="xml">
+            <form string="Ads Campaign">
+                <sheet>
+                    <group>
+                        <field name="campaign_code" readonly="1"/>
+                        <field name="platform"/>
+                        <field name="name"/>
+                        <field name="ad_id"/>
+                        <field name="status"/>
+                        <field name="adset_name"/>
+                    </group>
+                    <group>
+                        <field name="thumbnail_url" widget="url"/>
+                        <field name="objective"/>
+                        <field name="budget_remaining"/>
+                    </group>
+                    <group>
+                        <field name="impressions"/>
+                        <field name="reach"/>
+                        <field name="clicks"/>
+                        <field name="ctr"/>
+                        <field name="cpc"/>
+                        <field name="cpm"/>
+                        <field name="spend"/>
+                    </group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_stop"/>
+                        <field name="created_time_raw"/>
+                        <field name="updated_time_raw"/>
+                    </group>
+                    <group>
+                        <field name="actions_json" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

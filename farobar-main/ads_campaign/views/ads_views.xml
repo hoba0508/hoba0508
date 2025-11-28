@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_ads_campaign_tree" model="ir.ui.view">
+    <field name="name">ads.campaign.tree</field>
+    <field name="model">ads.campaign</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="code"/>
+        <field name="name"/>
+        <field name="platform_id"/>
+        <field name="ad_account"/>
+        <field name="status"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_ads_campaign_form" model="ir.ui.view">
+    <field name="name">ads.campaign.form</field>
+    <field name="model">ads.campaign</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="code"/>
+            <field name="name"/>
+            <field name="platform_id"/>
+            <field name="platform_campaign_id"/>
+            <field name="ad_account"/>
+            <field name="status"/>
+          </group>
+          <notebook>
+            <page string="Description">
+              <field name="description"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="view_ads_ad_tree" model="ir.ui.view">
+    <field name="name">ads.ad.tree</field>
+    <field name="model">ads.ad</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="external_id"/>
+        <field name="name"/>
+        <field name="campaign_id"/>
+        <field name="status"/>
+        <field name="adset_name"/>
+        <field name="thumbnail_url"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_ads_insight_tree" model="ir.ui.view">
+    <field name="name">ads.insight.tree</field>
+    <field name="model">ads.insight</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="ad_id"/>
+        <field name="date_start"/>
+        <field name="date_stop"/>
+        <field name="impressions"/>
+        <field name="clicks"/>
+        <field name="spend"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- Menu & actions -->
+  <menuitem id="menu_ads_root" name="Ads" sequence="90" />
+  <menuitem id="menu_ads_marketing" name="Ads Marketing" parent="menu_ads_root"/>
+
+  <record id="action_ads_campaign" model="ir.actions.act_window">
+    <field name="name">Campaigns</field>
+    <field name="res_model">ads.campaign</field>
+    <field name="view_mode">tree,form</field>
+    <field name="help" type="html">
+      <p class="o_view_nocontent_smiling_face">
+        Campaigns synced from ad platforms.
+      </p>
+    </field>
+  </record>
+  <menuitem id="menu_ads_campaigns" parent="menu_ads_marketing" name="Campaigns" action="action_ads_campaign"/>
+
+  <record id="action_ads_ad" model="ir.actions.act_window">
+    <field name="name">Ads</field>
+    <field name="res_model">ads.ad</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem id="menu_ads_ads" parent="menu_ads_marketing" name="Ads" action="action_ads_ad"/>
+
+  <record id="action_ads_insight" model="ir.actions.act_window">
+    <field name="name">Insights</field>
+    <field name="res_model">ads.insight</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem id="menu_ads_insights" parent="menu_ads_marketing" name="Insights" action="action_ads_insight"/>
+</odoo>

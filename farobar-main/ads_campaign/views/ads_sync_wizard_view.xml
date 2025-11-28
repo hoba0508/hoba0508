@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_ads_sync_wizard_form" model="ir.ui.view">
+    <field name="name">ads.sync.wizard.form</field>
+    <field name="model">ads.sync.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Sync Ads">
+        <sheet>
+          <group>
+            <field name="platform"/>
+            <field name="ad_account_id"/>
+            <field name="access_token" password="True"/>
+          </group>
+          <footer>
+            <button string="Sync" type="object" name="action_sync" class="btn-primary"/>
+            <button string="Cancel" class="btn-secondary" special="cancel"/>
+          </footer>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_ads_sync_wizard" model="ir.actions.act_window">
+    <field name="name">Sync Ads</field>
+    <field name="res_model">ads.sync.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <menuitem id="menu_ads_sync" parent="menu_ads_marketing" name="Sync Ads" action="action_ads_sync_wizard"/>
+</odoo>

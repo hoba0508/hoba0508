@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ads_platform,access.ads.platform,model_ads_platform,base.group_user,1,0,0,0
+access_ads_campaign,access.ads.campaign,model_ads_campaign,base.group_user,1,1,1,1
+access_ads_ad,access.ads.ad,model_ads_ad,base.group_user,1,1,1,1
+access_ads_insight,access.ads.insight,model_ads_insight,base.group_user,1,1,1,1
+access_ads_sync_wizard,access.ads.sync.wizard,model_ads_sync_wizard,base.group_user,1,0,0,0
