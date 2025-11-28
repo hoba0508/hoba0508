@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="bajukertas_helpdesk.list">
+      <field name="name">bajukertas_helpdesk list</field>
+      <field name="model">bajukertas_helpdesk.bajukertas_helpdesk</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="bajukertas_helpdesk.action_window">
+      <field name="name">bajukertas_helpdesk window</field>
+      <field name="res_model">bajukertas_helpdesk.bajukertas_helpdesk</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bajukertas_helpdesk.action_server">
+      <field name="name">bajukertas_helpdesk server</field>
+      <field name="model_id" ref="model_bajukertas_helpdesk_bajukertas_helpdesk"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="bajukertas_helpdesk" id="bajukertas_helpdesk.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="bajukertas_helpdesk.menu_1" parent="bajukertas_helpdesk.menu_root"/>
+    <menuitem name="Menu 2" id="bajukertas_helpdesk.menu_2" parent="bajukertas_helpdesk.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="bajukertas_helpdesk.menu_1_list" parent="bajukertas_helpdesk.menu_1"
+              action="bajukertas_helpdesk.action_window"/>
+    <menuitem name="Server to list" id="bajukertas_helpdesk" parent="bajukertas_helpdesk.menu_2"
+              action="bajukertas_helpdesk.action_server"/>
+-->
+  </data>
+</odoo>

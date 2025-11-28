@@ -1,0 +1,58 @@
+<odoo>
+  <record id="view_ads_ad_tree" model="ir.ui.view">
+    <field name="name">ads.ad.tree</field>
+    <field name="model">ads.ad</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="fb_ad_id"/>
+        <field name="name"/>
+        <field name="status"/>
+        <field name="social_campaign_id"/>
+        <field name="impressions"/>
+        <field name="clicks"/>
+        <field name="spend"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_ads_ad_form" model="ir.ui.view">
+    <field name="name">ads.ad.form</field>
+    <field name="model">ads.ad</field>
+    <field name="arch" type="xml">
+      <form string="Facebook Ad">
+        <sheet>
+          <group>
+            <field name="fb_ad_id"/>
+            <field name="name"/>
+            <field name="status"/>
+            <field name="social_campaign_id"/>
+            <field name="thumbnail_url" readonly="1"/>
+            <field name="create_date_fb"/>
+            <field name="update_date_fb"/>
+          </group>
+          <group>
+            <field name="impressions"/>
+            <field name="reach"/>
+            <field name="clicks"/>
+            <field name="unique_clicks"/>
+            <field name="ctr"/>
+            <field name="unique_ctr"/>
+            <field name="cpc"/>
+            <field name="cpm"/>
+            <field name="spend"/>
+          </group>
+          <notebook>
+            <page string="Raw">
+              <field name="actions_json" readonly="1"/>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <!-- menu -->
+  <menuitem id="menu_ads_root" name="Ads" parent="social.menu_social_root" sequence="100"/>
+  <menuitem id="menu_ads_ad" name="Facebook Ads" parent="menu_ads_root"/>
+  <act_window id="action_ads_ad" name="Facebook Ads" res_model="ads.ad" view_mode="tree,form" menu_id="menu_ads_ad"/>
+</odoo>

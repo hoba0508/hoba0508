@@ -1,0 +1,20 @@
+<odoo>
+  <!-- Extend social.campaign with meta fields and button -->
+  <record id="view_social_campaign_form_inherit_ads" model="ir.ui.view">
+    <field name="name">social.campaign.form.ads.inherit</field>
+    <field name="model">social.campaign</field>
+    <field name="inherit_id" ref="social.view_social_campaign_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//sheet" position="inside">
+        <group string="Ads (Meta) Integration" name="group_ads_meta">
+          <field name="meta_ad_account_id"/>
+          <field name="meta_campaign_id"/>
+          <field name="meta_access_token" password="True"/>
+          <button name="action_sync_campaign_ads" string="Sync Meta Ads" type="object"
+                  class="btn-primary"/>
+          <field name="last_meta_sync" readonly="1"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>
